@@ -7,7 +7,6 @@
 // 如果没有获胜，输出“No winner!”。
 /*
 import java.util.*;
-
 public class test {
     public static char isWin(char[][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -26,7 +25,6 @@ public class test {
         }
         return 'O';
     }
-
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         char[][] array = new char[3][3];
@@ -51,7 +49,6 @@ public class test {
 
 /*
 import java.util.*;
-
 public class test {
     //下棋
     public static void playBoard(char[][] array, char ch) {
@@ -67,7 +64,6 @@ public class test {
             }
         }
     }
-
     //判断输赢
     public static String isWin(char[][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -82,7 +78,6 @@ public class test {
         }
         return "noWin";
     }
-
     //打印棋盘
     public static void printBoard(char[][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -95,7 +90,6 @@ public class test {
             System.out.println();
         }
     }
-
     public static void main(String[] args) {
         char[][] array = new char[3][3];
         int count = 9;
@@ -140,7 +134,6 @@ public class test {
 // 输出一个值，为求和结果。
 /*
 import java.util.*;
-
 public class test {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
@@ -160,9 +153,7 @@ public class test {
 // 输出描述:
 // 输出一个整数，即小乐乐到达楼上需要的时间。
 /*
-
 import java.util.*;
-
 public class test {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
@@ -180,7 +171,6 @@ public class test {
 //求一个数的最大公约数和最小公倍数的和
 /*
 import java.util.*;
-
 public class test {
     public static void main(String[] agrs) {
         Scanner reader = new Scanner(System.in);
@@ -212,7 +202,6 @@ public class test {
 // 如果某一位是奇数，就把它变成1，如果是偶数，那么就把它变成0。请你回答他最后得到的数是多少。
 /*
 import java.util.*;
-
 public class test {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
@@ -244,7 +233,6 @@ public class test {
 //输出一个整数，即小乐乐可以走的方法数。
 /*
 import java.util.*;
-
 public class test {
     public static int jumpWay(int x) {
         if (x == 1 || x == 2) {
@@ -253,7 +241,6 @@ public class test {
             return jumpWay(x - 1) + jumpWay(x - 2);
         }
     }
-
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         int n = reader.nextInt();
@@ -269,7 +256,6 @@ public class test {
 // 输出一行，为去重排序后的序列，每个数后面有一个空格。
 /*
 import java.util.*;
-
 public class test {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);

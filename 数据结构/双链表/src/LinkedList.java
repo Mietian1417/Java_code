@@ -15,6 +15,7 @@ public class LinkedList {
         Node node = new Node(value);
         if (this.head == null) {
             this.head = node;
+            this.last = node;
             return;
         }
         node.next = this.head;
@@ -27,16 +28,21 @@ public class LinkedList {
         Node node = new Node(value);
         if (this.head == null) {
             this.head = node;
+            this.last = node;
             return;
         }
-        this.head.next = node;
-        node.prev = this.head;
+        this.last.next = node;
+        node.prev = this.last;
         this.last = node;
     }
 
     //任意位置插入（第一个数据节点为0号下标）
     public void addIndex(int index, int value) {
         if (this.head == null) {
+            return;
+        }
+        if (index == 0) {
+            addFirst(value);
             return;
         }
         Node node = new Node(value);
@@ -71,15 +77,19 @@ public class LinkedList {
         }
         if (this.head.value == key) {
             this.head = this.head.next;
+            this.head.prev = null;
             return;
         }
         Node cur = this.head;
         while (cur.next != null) {
             if (cur.next.value == key) {
                 cur.next = cur.next.next;
-                //这里要注意cur.next为空的情况！
                 if (cur.next != null) {
+                    //key关键字的节点不是尾结点
                     cur.next.prev = cur;
+                } else {
+                    //key关键字的节点是尾结点
+                    this.last = cur;
                 }
                 return;
             }
@@ -96,9 +106,12 @@ public class LinkedList {
         while (cur.next != null) {
             if (cur.next.value == key) {
                 cur.next = cur.next.next;
-                //这里要注意cur.next为空的情况！
                 if (cur.next != null) {
+                    //key关键字的节点不是尾结点
                     cur.next.prev = cur;
+                } else {
+                    //key关键字的节点是尾结点
+                    this.last = cur;
                 }
             } else {
                 cur = cur.next;
@@ -106,6 +119,13 @@ public class LinkedList {
         }
         if (this.head.value == key) {
             this.head = this.head.next;
+            //防止只有一个节点
+            if (this.head != null) {
+                this.head.prev = null;
+            } else {
+                //如果只有空节点，头结点和尾结点都要置空
+                this.last = null;
+            }
         }
     }
 
@@ -121,11 +141,21 @@ public class LinkedList {
     }
 
     //打印双链表
-    public void print() {
+    public void printFirst() {
         Node cur = this.head;
         while (cur != null) {
             System.out.print(cur.value + " ");
             cur = cur.next;
+        }
+        System.out.println();
+    }
+
+    //反向打印（可以测双链表尾结点的操作是否正确）
+    public void printLast() {
+        Node cur = this.last;
+        while (cur != null) {
+            System.out.print(cur.value + " ");
+            cur = cur.prev;
         }
         System.out.println();
     }

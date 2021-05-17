@@ -50,7 +50,7 @@ public class LinkedNodeList {
 
     //查看key关键字是否在双链表中
     public boolean contains(int key) {
-        Node cur = this.head;
+        Node cur = this.head.next;
         while (cur != null) {
             if (key == cur.value) {
                 return true;
@@ -63,10 +63,6 @@ public class LinkedNodeList {
     //删除第一次出现的key关键字
     public void remove(int key) {
         Node cur = this.head;
-        if (this.head.value == key) {
-            this.head = this.head.next;
-            return;
-        }
         while (cur.next != null) {
             if (cur.next.value == key) {
                 cur.next = cur.next.next;
@@ -94,15 +90,6 @@ public class LinkedNodeList {
                 }
             } else {
                 cur = cur.next;
-            }
-
-        }
-        if (this.head.value == key) {
-            this.head = this.head.next;
-            if (this.head != null) {
-                this.head.prev = null;
-            } else {
-                this.last = null;
             }
         }
     }
@@ -138,12 +125,12 @@ public class LinkedNodeList {
         System.out.println();
     }
 
-    public void clear() {
+    public void rudelyClear() {
         this.head = null;
         this.last = null;
     }
 
-    public void clear1() {
+    public void strictClear() {
         Node cur = this.head;
         Node curNext;
         while (cur != null) {

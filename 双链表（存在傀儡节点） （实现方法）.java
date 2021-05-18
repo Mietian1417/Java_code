@@ -30,13 +30,13 @@ public class LinkedNodeList {
         this.last = node;
     }
 
-    //插入从0号下标开始计数
+    //插入从1号下标开始计数（不算头结点）
     public void addIndex(int index, int value) {
-        if (index >= size()) {
+        if (index <= 1 && index >= size()) {
             return;
         }
         int count = 0;
-        Node cur = this.head;
+        Node cur = this.head.next;
         Node node = new Node(value);
         while (count + 1 != index) {
             cur = cur.next;

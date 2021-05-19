@@ -7,10 +7,11 @@ class Animal {
 
     public Animal(String name) {
         this.name = name;
+        eat();
     }
 
     public void eat() {
-        System.out.println(this.name + "吃饭了！");
+        System.out.println(this.name + "animal吃饭了！");
     }
 }
 
@@ -41,7 +42,7 @@ class Cat extends Animal {
     }
 
     public void eat() {
-        System.out.println(this.color + "的" + this.name + "吃饭了！");
+        System.out.println(this.color + "的" + this.name + "cat吃饭了！");
     }
 
     public void run() {
@@ -54,7 +55,7 @@ public class Test {
         Animal animal = new Animal("小动物");
         animal.eat();
         System.out.println();
-
+        
         Bird bird = new Bird("小欧");
         bird.eat();
         bird.fly();
@@ -123,5 +124,38 @@ public class Test {
         }
         */
 
+    //注意：动态绑定也可以在工作方法中发生
+        /*
+        class Animal {
+            String name;
+
+            public Animal(String name) {
+                this.name = name;
+                eat();
+            }
+
+            public void eat() {
+                System.out.println(this.name + "animal吃饭了！");
+            }
+        }
+
+        class Cat extends test1.Animal {
+            String color;
+
+            public Cat(String name, String color) {
+                super(name);
+                this.color = color;
+            }
+            
+            public void eat() {
+                System.out.println(this.color + "的" + this.name + "cat吃饭了！");
+            }
+            
+        }
+        public static void main(String[] agrs){
+            test1.Animal animal = new test1.Cat("小动物","白色");
+            animal.eat();  //发生了动态绑定，打印的是Cat类的eat方法
+        }
+        */
     }
 }

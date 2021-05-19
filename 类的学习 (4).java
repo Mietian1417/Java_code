@@ -1,6 +1,10 @@
 class Animal {
     String name;
 
+    public Animal() {
+
+    }
+
     public Animal(String name) {
         this.name = name;
     }
@@ -15,6 +19,10 @@ class Bird extends Animal {
         super(name);
     }
 
+    public Bird() {
+
+    }
+
     public void fly() {
         System.out.println(this.name + "飞起来了！");
     }
@@ -26,6 +34,10 @@ class Cat extends Animal {
     public Cat(String name, String color) {
         super(name);
         this.color = color;
+    }
+
+    public Cat() {
+
     }
 
     public void eat() {
@@ -88,5 +100,28 @@ public class Test {
             Bird bird2 = (Bird) animal3;
             bird2.fly();
         }
+
+        //关于向上转型，有三种常见类型
+        //1.直接赋值
+        //Animal animal = new Bird();
+        //Bird bird = (Bird) animal;
+
+        //2.方法传参
+        /*
+        public static void fun (Animal animal){
+
+        }
+        Cat cat = new Cat();
+        fun(cat);   //这里发生了向上转型
+        */
+
+        //3.方法的返回值
+        /*
+        public static Animal fun(){
+            Cat cat4 = new Cat();
+            return cat4;   //这里发生了向上转型
+        }
+        */
+
     }
 }

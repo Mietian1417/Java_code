@@ -7,7 +7,16 @@
  */
 public class Test {
     public static void main(String[] args) {
-        MyStack myStack = new MyStack();
+        MyStack<String> myStack =new MyStack<>();
+        myStack.push("hello");
+        myStack.push("world");
+        myStack.push("beautiful");
+        myStack.push("!");
+
+        myStack.disPlay();
+    }
+    public static void main2(String[] args) {
+        MyStack<Integer> myStack = new MyStack();
         myStack.push(4);
         myStack.push(5);
         myStack.push(6);
@@ -18,7 +27,8 @@ public class Test {
 
         myStack.disPlay();
 
-        myStack.pop();
+        int ret = myStack.pop();
+        System.out.println(ret);
         myStack.disPlay();
 
         int ret1 = myStack.peek();

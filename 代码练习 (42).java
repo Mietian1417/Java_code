@@ -20,6 +20,36 @@ import java.util.Stack;
 //来源：力扣（LeetCode）
 //链接：https://leetcode-cn.com/problems/valid-parentheses
 //著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+class Solution {
+    public boolean isValid(String s) {
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else {
+                if (stack.empty()) {
+                    return false;
+                }
+                char top = stack.peek();
+                if (c== ')' && top == '(' || c == '}' && top == '{' || c == ']' && top == '[') {
+                    stack.pop();
+                }else{
+                    return false;
+                }
+            }
+        }
+
+        return stack.empty();
+
+    }
+}
+
+/* 摸索版
 class Solution {
     public boolean isValid(String s) {
         Stack<String> stack = new Stack<>();
@@ -72,3 +102,4 @@ class Solution {
 
     }
 }
+*/
